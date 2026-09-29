@@ -1,0 +1,2371 @@
+/* =========================
+   MAIN BODY
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #cccfd6;
+}
+
+.body {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 20px 0;
+}
+
+
+/* =========================
+   WORK AREA
+========================= */
+
+.work {
+  width: 95%;
+  height: 100vh;
+  min-height: 650px;
+
+  margin: 0 auto 30px auto;
+
+  display: flex;
+
+  background-color: white;
+
+  border: 2px solid aquamarine;
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   LEFT SECTION
+========================= */
+
+.left-section {
+  width: 25%;
+  min-width: 220px;
+
+  padding: 20px;
+
+  background-color: #f4f6fa;
+
+  border-right: 2px solid #d9dde5;
+
+  overflow-y: auto;
+}
+
+.left-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+
+  text-align: center;
+
+  color: #333;
+}
+
+
+/* TOOL BUTTONS */
+
+.left-section > button {
+  width: 100%;
+
+  padding: 12px;
+
+  margin-bottom: 10px;
+
+  border: none;
+  border-radius: 7px;
+
+  background-color: #4566a9;
+
+  color: white;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.left-section > button:hover {
+  background-color: #344f88;
+}
+
+
+/* =========================
+   LAYERS
+========================= */
+
+.layer-panel {
+  margin-top: 25px;
+
+  padding: 12px;
+
+  background-color: white;
+
+  border: 1px solid #d5d9e2;
+
+  border-radius: 8px;
+}
+
+.layer-panel h3 {
+  margin-top: 0;
+
+  color: #444;
+}
+
+.tree-item {
+  padding-top: 9px;
+  padding-bottom: 9px;
+
+  margin-bottom: 3px;
+
+  border-radius: 5px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.tree-item:hover {
+  background-color: #edf1f7;
+}
+
+.selected-container {
+  background-color: #dce8ff;
+
+  color: #345fa8;
+
+  font-weight: bold;
+}
+
+.selected-label {
+  margin-left: 8px;
+
+  font-size: 11px;
+
+  color: #4566a9;
+}
+
+.empty-layers {
+  color: #999;
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   SELECTION INFO
+========================= */
+
+.selection-info {
+  margin-top: 20px;
+
+  padding: 12px;
+
+  background-color: #eef3ff;
+
+  border-left: 4px solid #4566a9;
+
+  border-radius: 5px;
+
+  color: #555;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   RIGHT SECTION
+========================= */
+
+.right-section {
+  width: 75%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background-color: white;
+}
+
+/* =====================================================
+   CODE SECTION
+   ===================================================== */
+
+.code {
+  width: 95%;
+  height: 100vh;
+  margin: auto 30px;
+  border-radius: 30px;
+  min-height: 500px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #18181b;
+  color: #f4f4f5;
+}
+
+.code-header {
+  flex: 0 0 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid #303034;
+}
+
+.code-header h2 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.code-header span {
+  color: #999;
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   TRUE 50 / 50 HORIZONTAL SPLIT
+   ===================================================== */
+
+.code-split {
+  flex: 1;
+
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  width: 100%;
+}
+
+
+/* =====================================================
+   EACH CODE PANEL
+   ===================================================== */
+
+.code-panel {
+  min-width: 0;
+  min-height: 0;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid #303034;
+}
+
+.code-panel:last-child {
+  border-right: none;
+}
+
+
+/* =====================================================
+   CODE PANEL HEADER
+   ===================================================== */
+
+.code-panel-header {
+  flex: 0 0 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 15px;
+
+  background: #202023;
+
+  border-bottom: 1px solid #303034;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.code-type {
+  color: #999;
+
+  font-size: 11px;
+  font-weight: 400;
+}
+
+
+/* =====================================================
+   CODE CONTENT
+   ===================================================== */
+
+.code-content {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow: auto;
+
+  padding: 15px;
+}
+
+.code-content pre {
+  margin: 0;
+
+  white-space: pre-wrap;
+
+  font-family:
+    "Cascadia Code",
+    "Consolas",
+    monospace;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+.code-content code {
+  color: #e7e7e7;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .body {
+    padding: 10px 0;
+  }
+
+  .work {
+    width: 98%;
+
+    height: auto;
+    min-height: 100vh;
+
+    flex-direction: column;
+
+    overflow: visible;
+  }
+
+  .left-section {
+    width: 100%;
+    min-width: 0;
+
+    border-right: none;
+    border-bottom: 2px solid #d9dde5;
+  }
+
+  .right-section {
+    width: 100%;
+    height: 600px;
+  }
+
+  .code {
+    width: 98%;
+
+    height: 100vh;
+
+    min-height: 600px;
+  }
+
+  .code-content {
+    padding: 12px;
+  }
+
+  .code-content pre {
+    font-size: 12px;
+  }
+
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.tool-modal {
+  width: min(440px, 100%);
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5e5e7;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #242424;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #f1f1f1;
+}
+
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-body label {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.modal-body input,
+.modal-body textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d5d5d8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+  border-color: #4c43e0;
+  box-shadow: 0 0 0 2px rgba(76, 67, 224, 0.12);
+}
+
+.modal-body small {
+  color: #777777;
+  font-size: 11px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid #e5e5e7;
+}
+
+.cancel-button,
+.create-button {
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: #f2f2f2;
+  color: #333333;
+}
+
+.create-button {
+  background: #4c43e0;
+  color: #ffffff;
+}
+
+.create-button:hover {
+  background: #4038c5;
+}
+
+/* =====================================================
+   GENERAL
+   ===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: #f5f5f7;
+  color: #242424;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+
+/* =====================================================
+   MAIN WORK AREA
+   ===================================================== */
+
+.body {
+  min-height: 100vh;
+}
+
+.work {
+  display: flex;
+  min-height: 620px;
+}
+
+
+/* =====================================================
+   LEFT TOOL SECTION
+   ===================================================== */
+
+.left-section {
+  width: 270px;
+  background: #ffffff;
+  border-right: 1px solid #e5e5e7;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.left-section h2 {
+  margin: 0 0 18px;
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.left-section > button {
+  width: 100%;
+  min-height: 40px;
+  margin-bottom: 8px;
+  border: 1px solid #e0e0e3;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #242424;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.left-section > button:hover {
+  background: #f4f4f6;
+}
+
+
+/* =====================================================
+   LAYERS
+   ===================================================== */
+
+.layer-panel {
+  margin-top: 25px;
+}
+
+.layer-panel h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.tree-item {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 7px;
+  cursor: pointer;
+  padding-right: 5px;
+  font-size: 13px;
+  transition: background 0.12s ease;
+}
+
+.tree-item:hover {
+  background: #f3f3f5;
+}
+
+.tree-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selected-container {
+  background: #eeeeff;
+  color: #4c43e0;
+}
+
+.selected-container:hover {
+  background: #e8e7ff;
+}
+
+
+/* =====================================================
+   RIGHT ARROW
+   ===================================================== */
+
+.layer-arrow {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #4c43e0;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.layer-arrow:hover {
+  background: #deddff;
+}
+
+
+/* =====================================================
+   EMPTY LAYERS
+   ===================================================== */
+
+.empty-layers {
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   SELECTION INFO
+   ===================================================== */
+
+.selection-info {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f5f5f7;
+  color: #666;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+
+/* =====================================================
+   CANVAS SECTION
+   ===================================================== */
+
+.right-section {
+  flex: 1;
+  padding: 30px;
+  overflow: auto;
+}
+
+.canvas {
+  width: 100%;
+  min-height: 550px;
+  background: #ffffff;
+  border: 1px solid #e1e1e4;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.container-title {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.container-children {
+  width: 100%;
+}
+
+
+/* =====================================================
+   CODE AREA
+   ===================================================== */
+
+.code {
+  background: #18181b;
+  color: #f4f4f5;
+  min-height: 400px;
+}
+
+.code-header {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #303034;
+}
+
+.code-header h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.code-header span {
+  color: #aaa;
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   50 / 50 CODE SPLIT
+   ===================================================== */
+
+.code-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 345px;
+}
+
+.code-panel {
+  min-width: 0;
+  border-right: 1px solid #303034;
+}
+
+.code-panel:last-child {
+  border-right: none;
+}
+
+.code-panel-header {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: #202023;
+  border-bottom: 1px solid #303034;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.code-type {
+  color: #999;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.code-content {
+  height: 300px;
+  overflow: auto;
+  padding: 15px;
+}
+
+.code-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family:
+    "Cascadia Code",
+    "Consolas",
+    monospace;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.code-content code {
+  color: #e7e7e7;
+}
+
+
+/* =====================================================
+   MODAL OVERLAY
+   ===================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+
+/* =====================================================
+   MODAL
+   ===================================================== */
+
+.tool-modal {
+  width: min(520px, 100%);
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2);
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   MODAL HEADER
+   ===================================================== */
+
+.modal-header {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid #e5e5e7;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: transparent;
+
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #f2f2f2;
+}
+
+
+/* =====================================================
+   CREATE MODAL
+   ===================================================== */
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-body label {
+  margin-top: 8px;
+
+  font-size: 12px;
+  font-weight: 650;
+  color: #333;
+}
+
+.modal-body input,
+.modal-body textarea {
+  width: 100%;
+
+  border: 1px solid #d6d6da;
+  border-radius: 8px;
+
+  padding: 10px 12px;
+
+  font-size: 14px;
+  outline: none;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+  border-color: #4c43e0;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(76, 67, 224, 0.12);
+}
+
+
+/* =====================================================
+   CSS EDITOR
+   ===================================================== */
+
+.css-editor {
+  padding: 18px 20px;
+
+  overflow-y: auto;
+
+  max-height: 65vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.css-editor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid #eeeeef;
+}
+
+.css-editor-info strong {
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.css-editor-info span {
+  color: #777;
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   CSS FIELD
+   ===================================================== */
+
+.css-field {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.css-field label {
+  font-size: 12px;
+  font-weight: 550;
+  color: #444;
+}
+
+.css-field input {
+  min-width: 0;
+
+  height: 34px;
+
+  border: 1px solid #d6d6da;
+  border-radius: 7px;
+
+  padding: 0 9px;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+.css-field input:focus {
+  border-color: #4c43e0;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(76, 67, 224, 0.10);
+}
+
+
+/* =====================================================
+   MODAL FOOTER
+   ===================================================== */
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  padding: 15px 20px;
+
+  border-top: 1px solid #e5e5e7;
+}
+
+.cancel-button,
+.create-button {
+  min-height: 36px;
+
+  padding: 0 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: #f1f1f3;
+  color: #333;
+}
+
+.create-button {
+  background: #4c43e0;
+  color: #fff;
+}
+
+.create-button:hover {
+  background: #4038c5;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+  .work {
+    flex-direction: column;
+  }
+
+  .left-section {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e7;
+  }
+
+  .right-section {
+    padding: 15px;
+  }
+
+  .code-split {
+    grid-template-columns: 1fr;
+  }
+
+  .code-panel {
+    border-right: none;
+    border-bottom: 1px solid #303034;
+  }
+
+  .css-field {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+/* =====================================================
+   CUSTOM CSS ATTRIBUTE SECTION
+   ===================================================== */
+
+.custom-css-section {
+  margin-top: 12px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #e5e5e7;
+}
+
+.custom-css-title {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  margin-bottom: 10px;
+}
+
+.custom-css-title strong {
+  font-size: 13px;
+}
+
+.custom-css-title span {
+  color: #777;
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   CUSTOM CSS INPUT ROW
+   ===================================================== */
+
+.custom-css-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    auto;
+
+  gap: 7px;
+}
+
+.custom-css-row input {
+  min-width: 0;
+
+  height: 35px;
+
+  border: 1px solid #d6d6da;
+
+  border-radius: 7px;
+
+  padding: 0 9px;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+.custom-css-row input:focus {
+  border-color: #4c43e0;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(76, 67, 224, 0.10);
+}
+
+
+/* =====================================================
+   ADD BUTTON
+   ===================================================== */
+
+.add-css-button {
+  height: 35px;
+
+  padding: 0 13px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: #4c43e0;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.add-css-button:hover {
+  background: #4038c5;
+}
+
+
+/* =====================================================
+   EXAMPLE
+   ===================================================== */
+
+.custom-css-example {
+  margin-top: 8px;
+
+  color: #888;
+
+  font-size: 10px;
+}
+
+.custom-css-example code {
+  padding: 2px 4px;
+
+  border-radius: 4px;
+
+  background: #f1f1f3;
+
+  color: #555;
+}
+
+/* =====================================================
+   COMPONENT TOOL SYSTEM
+   DOES NOT CHANGE THE 25 / 75 WORK LAYOUT
+   ===================================================== */
+
+.tool-layout {
+  width: 100%;
+}
+
+.tool-group {
+  width: 100%;
+}
+
+.component-tool-button {
+  width: 100%;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 7px;
+  padding: 8px 10px;
+  border: 1px solid #e1e1e4;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #242424;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 550;
+  cursor: pointer;
+  transition:
+    background 0.12s ease,
+    border-color 0.12s ease,
+    transform 0.12s ease;
+}
+
+.component-tool-button:hover {
+  background: #f5f5f7;
+  border-color: #d5d5da;
+}
+
+.component-tool-button:active {
+  transform: translateY(1px);
+}
+
+.component-tool-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #f1f1ff;
+  color: #4c43e0;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.secondary-tools {
+  padding-top: 5px;
+}
+
+.more-tools-button {
+  width: 100%;
+  min-height: 36px;
+  margin-top: 3px;
+  border: 1px solid #dedee3;
+  border-radius: 8px;
+  background: #f8f8fa;
+  color: #4c43e0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.more-tools-button:hover {
+  background: #eeeeff;
+}
+
+
+/* =====================================================
+   CANVAS COMPONENT BASE
+   ===================================================== */
+
+.canvas {
+  position: relative;
+}
+
+.canvas-container {
+  box-sizing: border-box;
+}
+
+.canvas-button,
+.canvas-icon-button {
+  box-sizing: border-box;
+}
+
+.canvas-text,
+.canvas-heading,
+.canvas-paragraph,
+.canvas-label {
+  box-sizing: border-box;
+}
+
+.canvas-image {
+  max-width: 100%;
+}
+
+.canvas-progress-value {
+  width: 62%;
+  height: 100%;
+  background: #4c43e0;
+  border-radius: inherit;
+}
+
+
+/* =====================================================
+   STRUCTURAL CONTAINER CLASSES
+   ===================================================== */
+
+.container-title {
+  box-sizing: border-box;
+}
+
+.container-children {
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   GENERATED COMPONENT SUPPORT
+   ===================================================== */
+
+.canvas-divider,
+.canvas-separator {
+  flex-shrink: 0;
+}
+
+.canvas-spacer {
+  flex-shrink: 0;
+}
+
+.canvas-spinner {
+  flex-shrink: 0;
+}
+
+.canvas-loader {
+  flex-shrink: 0;
+}
+
+.canvas-progress-bar {
+  flex-shrink: 0;
+}
+
+.canvas-skeleton {
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   CSS EDITOR
+   ===================================================== */
+
+.css-editor {
+  padding: 18px 20px;
+  overflow-y: auto;
+  max-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.css-editor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeef;
+}
+
+.css-editor-info strong {
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.css-editor-info span {
+  color: #777;
+  font-size: 11px;
+}
+
+.css-field {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.css-field label {
+  font-size: 12px;
+  font-weight: 550;
+  color: #444;
+}
+
+.css-field input {
+  min-width: 0;
+  height: 34px;
+  border: 1px solid #d6d6da;
+  border-radius: 7px;
+  padding: 0 9px;
+  font-size: 12px;
+  outline: none;
+}
+
+.css-field input:focus {
+  border-color: #4c43e0;
+  box-shadow:
+    0 0 0 2px
+    rgba(76, 67, 224, 0.10);
+}
+
+
+/* =====================================================
+   CUSTOM CSS
+   ===================================================== */
+
+.custom-css-section {
+  margin-top: 12px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e5e7;
+}
+
+.custom-css-title {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.custom-css-title strong {
+  font-size: 13px;
+}
+
+.custom-css-title span {
+  color: #777;
+  font-size: 11px;
+}
+
+.custom-css-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 7px;
+}
+
+.custom-css-row input {
+  min-width: 0;
+  height: 35px;
+  border: 1px solid #d6d6da;
+  border-radius: 7px;
+  padding: 0 9px;
+  font-size: 12px;
+  outline: none;
+}
+
+.custom-css-row input:focus {
+  border-color: #4c43e0;
+  box-shadow:
+    0 0 0 2px
+    rgba(76, 67, 224, 0.10);
+}
+
+.add-css-button {
+  height: 35px;
+  padding: 0 13px;
+  border: none;
+  border-radius: 7px;
+  background: #4c43e0;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-css-button:hover {
+  background: #4038c5;
+}
+
+.custom-css-example {
+  margin-top: 8px;
+  color: #888;
+  font-size: 10px;
+}
+
+.custom-css-example code {
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: #f1f1f3;
+  color: #555;
+}
+
+
+/* =====================================================
+   TOOL AREA — INTERNAL SCROLL ONLY
+   ===================================================== */
+
+.left-section {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.tool-layout {
+  overflow: visible;
+}
+
+
+/* =====================================================
+   RESPONSIVE TOOL GRID
+   ===================================================== */
+
+@media (min-width: 900px) {
+
+  .tool-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .component-tool-button {
+    min-height: 40px;
+  }
+
+  .css-field {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+}
+
+
+/* =====================================================
+   GENERATED LOADING ANIMATIONS
+   ===================================================== */
+
+@keyframes canvas-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes canvas-loader {
+  0% {
+    transform: scaleX(0.35);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  100% {
+    transform: scaleX(0.35);
+    transform-origin: right;
+  }
+}
+
+@keyframes canvas-skeleton {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   FINAL TOOL + LAYOUT IMPROVEMENTS
+   ===================================================== */
+
+/*
+   Give the canvas/layout more space.
+
+   OLD:
+   Tools 25%
+   Canvas 75%
+
+   NEW:
+   Tools 20%
+   Canvas 80%
+*/
+
+.work .left-section {
+  width: 20%;
+  flex: 0 0 20%;
+  min-width: 210px;
+}
+
+.work .right-section {
+  width: 80%;
+  flex: 0 0 80%;
+}
+
+
+/* =====================================================
+   TWO TOOLS PER ROW
+   ===================================================== */
+
+.tool-group {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+
+/*
+   The old buttons had margin-bottom.
+   Remove it because the grid now controls spacing.
+*/
+
+.component-tool-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  margin: 0;
+  padding: 7px 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+
+  border: 1px solid #e1e1e4;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #242424;
+
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 550;
+
+  cursor: pointer;
+
+  transition:
+    background 0.12s ease,
+    border-color 0.12s ease,
+    transform 0.12s ease;
+}
+
+.component-tool-button:hover {
+  background: #f5f5f7;
+  border-color: #d5d5da;
+}
+
+.component-tool-button:active {
+  transform: translateY(1px);
+}
+
+
+/* =====================================================
+   TOOL ICON
+   ===================================================== */
+
+.component-tool-icon {
+  width: 22px;
+  height: 22px;
+
+  flex: 0 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: #f1f1ff;
+  color: #4c43e0;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+
+/* =====================================================
+   MORE COMPONENTS
+   ===================================================== */
+
+.more-tools-button {
+  width: 100%;
+  min-height: 38px;
+
+  margin-top: 9px;
+
+  border: 1px solid #dedee3;
+  border-radius: 8px;
+
+  background: #f8f8fa;
+  color: #4c43e0;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.more-tools-button:hover {
+  background: #eeeeff;
+  border-color: #d5d3ff;
+}
+
+
+/* =====================================================
+   SECONDARY TOOLS
+   ===================================================== */
+
+.secondary-tools {
+  padding-top: 2px;
+}
+
+
+/* =====================================================
+   KEEP LAYERS COMPACT
+   ===================================================== */
+
+.layer-panel {
+  margin-top: 14px;
+}
+
+
+/* =====================================================
+   GIVE CANVAS MORE INTERNAL SPACE
+   ===================================================== */
+
+.right-section .canvas {
+  width: 100%;
+  min-height: 550px;
+}
+
+
+/* =====================================================
+   SMALL SCREENS
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+  /*
+     On small screens the existing responsive
+     behavior can take over.
+  */
+
+  .work .left-section,
+  .work .right-section {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .tool-group {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+.component-content-editor {
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e5e5e7;
+}
+
+.content-editor-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.content-editor-title strong {
+  font-size: 14px;
+  color: #242424;
+}
+
+.content-editor-title span {
+  font-size: 12px;
+  color: #777;
+}
+
+.component-content-editor input,
+.component-content-editor textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #d6d6da;
+  border-radius: 8px;
+  background: #fff;
+  color: #242424;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+}
+
+.component-content-editor input:focus,
+.component-content-editor textarea:focus {
+  border-color: #4c43e0;
+  box-shadow: 0 0 0 2px rgba(76, 67, 224, 0.1);
+}
+/* =========================================================
+   CANVAS CONTENT
+========================================================= */
+
+.container-content {
+  width: 100%;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.container-children {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LAYER HEADER
+========================================================= */
+
+.layer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+
+/* =========================================================
+   UNDO / REDO
+========================================================= */
+
+.history-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.history-controls button {
+  border: 1px solid #e5e5e7;
+  background: #ffffff;
+  color: #333333;
+  border-radius: 7px;
+  padding: 6px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.history-controls button:hover:not(:disabled) {
+  background: #f1f1f5;
+  border-color: #d5d5dc;
+}
+
+.history-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   LAYER ACTIONS
+========================================================= */
+
+.layer-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.layer-content-button,
+.layer-arrow {
+  width: 27px;
+  height: 27px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e5e5e7;
+  background: #ffffff;
+  color: #555555;
+
+  border-radius: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.layer-content-button:hover,
+.layer-arrow:hover {
+  background: #f0efff;
+  color: #4c43e0;
+  border-color: #c9c6ff;
+}
+
+.layer-content-button:active,
+.layer-arrow:active {
+  transform: scale(0.94);
+}
+
+
+/* =========================================================
+   CONTENT EDITOR
+========================================================= */
+
+.content-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.content-editor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding: 12px;
+
+  background: #f7f7fa;
+  border: 1px solid #e8e8ed;
+  border-radius: 9px;
+}
+
+.content-editor-info strong {
+  color: #242424;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.content-editor-info span {
+  color: #777777;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.content-editor > label {
+  color: #333333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.content-editor textarea {
+  width: 100%;
+  min-height: 150px;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  padding: 12px;
+
+  border: 1px solid #ddddE3;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #242424;
+
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.content-editor textarea:focus {
+  border-color: #4c43e0;
+
+  box-shadow:
+    0 0 0 3px rgba(76, 67, 224, 0.10);
+}
+
+.content-editor-hint {
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background: #f8f8fb;
+  border: 1px solid #e7e7ec;
+
+  color: #6b6b73;
+
+  font-size: 12px;
+  line-height: 19px;
+}
+
+.content-editor-hint code {
+  display: inline-block;
+
+  margin: 2px 3px;
+  padding: 2px 5px;
+
+  border-radius: 4px;
+
+  background: #eeeeF3;
+
+  color: #4c43e0;
+
+  font-family: monospace;
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.modal {
+  width: min(620px, 100%);
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e5e7;
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 18px;
+
+  border-bottom: 1px solid #eeeeF1;
+}
+
+.modal-header h2 {
+  margin: 0;
+
+  color: #242424;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: transparent;
+  color: #555555;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #f1f1f4;
+}
+
+
+/* =========================================================
+   MODAL BODY
+========================================================= */
+
+.css-editor,
+.create-editor,
+.content-editor {
+  padding: 18px;
+
+  overflow-y: auto;
+}
+
+.css-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.create-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  color: #333333;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.field input,
+.field textarea,
+.custom-css-row input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 9px 11px;
+
+  border: 1px solid #ddddE3;
+  border-radius: 7px;
+
+  background: #ffffff;
+  color: #242424;
+
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+
+  outline: none;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field input:focus,
+.field textarea:focus,
+.custom-css-row input:focus {
+  border-color: #4c43e0;
+
+  box-shadow:
+    0 0 0 3px rgba(76, 67, 224, 0.08);
+}
+
+
+/* =========================================================
+   CSS EDITOR
+========================================================= */
+
+.css-editor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  padding: 11px;
+
+  background: #f7f7fa;
+  border: 1px solid #e8e8ed;
+  border-radius: 8px;
+}
+
+.css-editor-info strong {
+  font-size: 13px;
+  color: #242424;
+}
+
+.css-editor-info span {
+  font-size: 11px;
+  color: #777777;
+}
+
+.css-fields {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.custom-css {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-css h4 {
+  margin: 0;
+
+  color: #333333;
+
+  font-size: 13px;
+}
+
+.custom-css-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr auto;
+
+  gap: 7px;
+}
+
+.custom-css-row button {
+  border: 0;
+
+  padding: 0 13px;
+
+  border-radius: 7px;
+
+  background: #4c43e0;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.custom-css-row button:hover {
+  background: #3f37c9;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  padding: 14px 18px;
+
+  border-top: 1px solid #eeeeF1;
+}
+
+.cancel-button,
+.primary-button {
+  border-radius: 8px;
+
+  padding: 9px 15px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.cancel-button {
+  border: 1px solid #ddddE3;
+
+  background: #ffffff;
+  color: #444444;
+}
+
+.cancel-button:hover {
+  background: #f5f5f7;
+}
+
+.primary-button {
+  border: 1px solid #4c43e0;
+
+  background: #4c43e0;
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background: #4038c9;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+  .css-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .custom-css-row {
+    grid-template-columns: 1fr;
+  }
+
+  .layer-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .history-controls {
+    width: 100%;
+  }
+
+  .history-controls button {
+    flex: 1;
+  }
+
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal {
+    max-height: 95vh;
+  }
+}
